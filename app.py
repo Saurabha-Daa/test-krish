@@ -83,10 +83,10 @@ def inference(query):
       return predictions
 
 def main():
-    uploaded_file = st.file_uploader("Choose a file")
-    query = dataframe_optimizer(pd.read_csv(uploaded_file))
-    query_prediction = inference(query)   
+    uploaded_file = st.file_uploader("Choose a file")       
     if uploaded_file is not None:
+        query = dataframe_optimizer(pd.read_csv(uploaded_file))
+        query_prediction = inference(query)
         dataframe = pd.read_csv(query_prediction)
         st.write(dataframe)
 
